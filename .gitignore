@@ -1,0 +1,16 @@
+# Compiled binaries
+main
+*.o
+*.out
+*.exe
+
+# OS-specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.idea/

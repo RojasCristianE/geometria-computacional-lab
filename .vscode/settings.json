@@ -1,0 +1,16 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.rulers": [80],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+  "C_Cpp.clang_format_fallbackStyle": "file",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "/usr/include/SDL2",
+    "/usr/local/include"
+  ]
+}

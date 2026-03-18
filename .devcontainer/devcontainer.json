@@ -1,0 +1,39 @@
+{
+  "name": "Geometría Computacional – SDL_BGI",
+  "image": "mcr.microsoft.com/devcontainers/cpp:1-ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "cristian",
+      "webPort": "6080",
+      "vncPort": "5901"
+    }
+  },
+
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Desktop (NoVNC)",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.hexeditor",
+        "jeff-hykin.better-c-syntax",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-spanish",
+        "mhutchie.git-graph",
+        "usernamehw.errorlens",
+        "christian-kohler.path-intellisense"
+      ]
+    }
+  }
+}
