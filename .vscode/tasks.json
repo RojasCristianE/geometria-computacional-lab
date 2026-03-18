@@ -1,49 +1,75 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Build (GCC + SDL_BGI)",
-      "type": "shell",
-      "command": "/usr/bin/gcc",
-      "args": [
-        "-g",
-        "-Wall",
-        "-Wextra",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}",
-        "-lSDL_bgi",
-        "-lSDL2",
-        "-lm"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": {
-        "owner": "gcc",
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "pattern": {
-          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-          "file": 1,
-          "line": 2,
-          "column": 3,
-          "severity": 4,
-          "message": 5
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (GCC + SDL_BGI)",
+            "type": "shell",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lSDL_bgi",
+                "-lSDL2",
+                "-lm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": {
+                "owner": "gcc",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Compila el archivo actual con SDL_BGI + SDL2"
+        },
+        {
+            "label": "Build & Run",
+            "dependsOn": "Build (GCC + SDL_BGI)",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension}",
+            "group": "test",
+            "detail": "Compila y ejecuta el archivo actual"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc compilar archivo activo",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarea generada por el depurador."
         }
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "Compila el archivo actual con SDL_BGI + SDL2"
-    },
-    {
-      "label": "Build & Run",
-      "dependsOn": "Build (GCC + SDL_BGI)",
-      "type": "shell",
-      "command": "${fileDirname}/${fileBasenameNoExtension}",
-      "group": "test",
-      "detail": "Compila y ejecuta el archivo actual"
-    }
-  ]
+    ]
 }
