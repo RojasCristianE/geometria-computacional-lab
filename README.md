@@ -2,9 +2,7 @@
 
 > **Autor:** Cristian Rojas · [github.com/RojasCristianE](https://github.com/RojasCristianE)
 
-Repositorio base para la clase de **Geometría Computacional**.  
-Usa **SDL_BGI** (`graphics.h`) para ser **100% compatible** con el código WinBGIm de clase, pero compilable en **Linux, macOS y GitHub Codespaces**.
-
+Repositorio base para la clase de **Geometría Computacional**.
 ---
 
 ## 🚀 Inicio rápido en GitHub Codespaces
@@ -72,8 +70,6 @@ circle(x, y, r);
 getch();
 closegraph();
 ```
-
-Para compilar en Windows con WinBGIm, usa las mismas banderas que tu profesor indica (típicamente `-lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32`).
 
 ---
 
