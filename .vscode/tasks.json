@@ -2,20 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build (GCC + SDL_BGI)",
+            "label": "Build (Makefile)",
             "type": "shell",
-            "command": "/usr/bin/gcc",
-            "args": [
-                "-g",
-                "-Wall",
-                "-Wextra",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
-                "-lSDL_bgi",
-                "-lSDL2",
-                "-lm"
-            ],
+            "command": "make",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
@@ -38,29 +27,45 @@
                 "kind": "build",
                 "isDefault": false
             },
-            "detail": "Compila el archivo actual con SDL_BGI + SDL2"
+            "detail": "Compila el proyecto usando el Makefile"
         },
         {
-            "label": "Build & Run",
-            "dependsOn": "Build (GCC + SDL_BGI)",
+            "label": "Run",
             "type": "shell",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
+            "command": "make run",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
             "group": "test",
-            "detail": "Compila y ejecuta el archivo actual"
+            "detail": "Compila y ejecuta el programa principal"
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "make clean",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Elimina los archivos binarios compilados"
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc compilar archivo activo",
+            "label": "Compilar C con SDL_BGI",
             "command": "/usr/bin/gcc",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lSDL_bgi",
+                "-lSDL2",
+                "-lm"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -69,7 +74,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarea generada por el depurador."
+            "detail": "Compila el archivo C actual con SDL_BGI y SDL2"
         }
     ]
 }

@@ -10,7 +10,26 @@
   "C_Cpp.clang_format_fallbackStyle": "file",
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/**",
+    "/usr/include",
     "/usr/include/SDL2",
     "/usr/local/include"
-  ]
+  ],
+
+  /* Deshabilitar tareas automáticas de C/C++ */
+  "C_Cpp.default.browse.path": [
+    "${workspaceFolder}/**",
+    "/usr/include",
+    "/usr/include/SDL2",
+    "/usr/local/include"
+  ],
+
+  /* Configurar comando de build para Code Runner (si está instalado) */
+  "code-runner.executorMap": {
+    "c": "cd $dir && make && $dir$fileNameWithoutExt"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+
+  /* Evitar que C/C++ genere tareas automáticas */
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json"
 }
